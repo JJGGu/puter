@@ -11,7 +11,7 @@
 FROM node:22-alpine AS build
 
 # Install build dependencies
-RUN apk add --no-cache git python3 make g++ \
+RUN apk add --no-check-certificate --no-cache git python3 make g++ \
     && ln -sf /usr/bin/python3 /usr/bin/python
 
 # Set up working directory
@@ -49,7 +49,7 @@ LABEL license="AGPL-3.0,https://github.com/HeyPuter/puter/blob/master/LICENSE.tx
 LABEL version="1.2.46-beta-1"
 
 # Install git (required by Puter to check version)
-RUN apk add --no-cache git
+RUN apk add --no-check-certificate --no-cache git
 
 # Set up working directory
 RUN mkdir -p /opt/puter/app
